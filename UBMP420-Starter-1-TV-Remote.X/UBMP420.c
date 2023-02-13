@@ -22,7 +22,7 @@ void OSC_config(void)
 {
     OSCCON = 0xFC;              // Set 16MHz HFINTOSC with 3x PLL enabled
     ACTCON = 0x90;              // Enable active clock tuning from USB clock
-//    while(!PLLRDY);             // Wait for PLL lock (disable for simulation)
+    while(!PLLRDY);             // Wait for PLL lock (disable for simulation)
 }
 
 // Configure hardware ports and peripherals for on-board UBMP4 I/O devices.

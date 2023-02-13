@@ -15,7 +15,7 @@
                    projectFiles="true">
       <itemPath>PIC16F1459-config.c</itemPath>
       <itemPath>UBMP420.c</itemPath>
-      <itemPath>TV-Remote-Starter.c</itemPath>
+      <itemPath>TV-Remote.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
