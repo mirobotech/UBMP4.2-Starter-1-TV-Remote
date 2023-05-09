@@ -1,11 +1,11 @@
 /*==============================================================================
  Project: TVRemote-Starter              Activity: mirobo.tech/ubmp4-starter-1
- Date:    January 20, 2023
+ Date:    May 9, 2023
  
  UBMP4.2 Starter 1 project code for creating SONY-formatted (SIRC) IR remote
- control codes. Use the concepts introduced in this program and the website 
- activity to learn debugging techniques, and then modify this program to create
- other IR protocols.
+ control codes. Use the concepts introduced on the website and starting with
+ this program to learn code timing debugging techniques. Then, modify this
+ program to create other IR protocols for your own use.
 ==============================================================================*/
 
 #include    "xc.h"              // Microchip XC8 compiler include file
