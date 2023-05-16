@@ -1,45 +1,41 @@
 /*==============================================================================
  File: UBMP420.h
- Date: April 2, 2022
+ Date: May 16, 2023
  
- UBMP4.2 (PIC16F1459) symbolic constant and function definitions
+ CHRP4 (PIC16F1459) symbolic constant and function definitions.
  
- I/O pin definitions section:
- Inputs read port registers (e.g. PORTC) and outputs write to port latches
- (e.g. LATC). Use this file to create unique symbolic names for each input
- and output device connected to the I/O pins of the PIC16F1459 of UBMP4.2.
+ I/O pin definitions sections:
+ These sections assign unique symbolic names to on-board UBMP4 input and output
+ devices making it easier to address them instead of using PIC16F1459 pin names.
+ In the PIC16F1459 microcontroller, digital inputs are read through port
+ registers (e.g. PORTC) and digital outputs write to port latches (e.g. LATC).
+ Some pins are assigned more than one name to match older versions of the
+ circuit board (e.g. D1 and LED1 refer to the same LED), while other pins have
+ both an input definition as well as an output definition (e.g. H1IN and H1OUT).
+ Add or modify symbolic definitions as needed.
  
  ADC input channel definitions section:
- Definitions representing ADCON0 channel select (CHS) bit for the ADC channels
- available on the UMBP4.2.
+ Definitions representing the ADCON0 register channel select (CHS) bits used to
+ represent each ADC channel available on UBMP4. These definitions are used with
+ the ADC_select_channel and ADC_read_channel functions.
  
  Function prototypes section:
- Functions in the UBMP420.c file must be defined before use in the main user
- program. This header file defines function prototypes for functions located
- in the UBMP420.c file.
+ Function prototype definitions for each of the functions in the UBMP420.c file
+ are located here. Function prototypes must exist for all external functions
+ before they can be called from within the main program code.
 ==============================================================================*/
 
-// TODO - Add/modify user constant definitions for UBMP hardware here.
-
 // PORTA I/O pin definitions
-#define PROG        PORTAbits.RA3   // SW1/PROG/Reset (MCLR) pushbutton input
-#define MCLR        PORTAbits.RA3   // SW1/PROG/Reset (MCLR) pushbutton input
-#define S1          PORTAbits.RA3   // SW1/PROG/Reset (MCLR) pushbutton input
 #define SW1         PORTAbits.RA3   // SW1/PROG/Reset (MCLR) pushbutton input
 #define BEEPER      LATAbits.LATA4  // Piezo beeper (LS1) output
 #define	LS1         LATAbits.LATA4  // Piezo beeper (LS1) output
 #define D1          LATAbits.LATA5  // LED D1/Run LED output (active-low)
 #define LED1        LATAbits.LATA5  // LED D1/Run LED output (active-low)
-#define RUNLED      LATAbits.LATA5  // LED D1/Run LED output (active-low)
 
 // PORTB I/O pin definitions
-#define S2          PORTBbits.RB4   // Pushbutton SW2 input
 #define SW2         PORTBbits.RB4   // Pushbutton SW2 input
-#define S3          PORTBbits.RB5   // Pushbutton SW3 input
 #define SW3         PORTBbits.RB5   // Pushbutton SW3 input
-#define S4          PORTBbits.RB6   // Pushbutton SW4 input
 #define SW4         PORTBbits.RB6   // Pushbutton SW4 input
-#define S5          PORTBbits.RB7   // Pushbutton SW5 input
 #define SW5         PORTBbits.RB7   // Pushbutton SW5 input
 
 // PORTC I/O pin definitions
@@ -51,8 +47,7 @@
 
 #define H3IN        PORTCbits.RC2   // External I/O header H3 input
 #define H3OUT       LATCbits.LATC2  // External I/O header H3 output 
-#define IR          PORTCbits.RC2   // IR demodulator (U2) input
-#define U2          PORTCbits.RC2   // IR demodulator (U2) input
+#define IRIN        PORTCbits.RC2   // IR demodulator (U2) input
 
 #define H4IN        PORTCbits.RC3   // External I/O header H4 input
 #define H4OUT       LATCbits.LATC3  // External I/O header H4 output
@@ -81,7 +76,7 @@
 #define D5          LATCbits.LATC7  // LED D5 output
 #define LED5        LATCbits.LATC7  // LED D5 output
 
-// ADC (A-D converter) input channel definitions for read_ADC() function
+// ADC (A-D converter) input channel definitions
 #define AN4         0b00010000      // A-D converter channel 4 input
 #define ANH1        0b00010000      // External H1 header analogue input (Ch4))
 #define AN5         0b00010100      // A-D converter channel 5 input
@@ -138,7 +133,7 @@ void ADC_select_channel(unsigned char);
 /**
  * Function: unsigned char ADC_read(void)
  * 
- * Convert currently selected channel and return an 8-bit conversion result.
+ * Convert currently selected ADC channel and return an 8-bit conversion result.
  * 
  * Example usage: light_level = ADC_read();
  */
@@ -154,4 +149,5 @@ unsigned char ADC_read(void);
  */
 unsigned char ADC_read_channel(unsigned char);
 
-// TODO - Add additional function prototypes for new functions in UBMP420.c here.
+// TODO - Add additional function prototypes for any new functions added to
+// the UBMP420.c file here.

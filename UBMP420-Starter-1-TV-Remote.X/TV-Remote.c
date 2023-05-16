@@ -1,6 +1,6 @@
 /*==============================================================================
  Project: TV-Remote                     Activity: mirobo.tech/ubmp4-starter-1
- Date:    May 9, 2023
+ Date:    May 16, 2023
  
  This starter programming project for the mirobo.tech UBMP4 modulates an IR LED
  to create SONY-formatted (SIRC) remote control codes. By using the concepts
@@ -95,11 +95,11 @@ void ir_transmit_Sony(unsigned char device, unsigned char command)
 int main(void)
 {
     OSC_config();               // Configure internal oscillator for 48 MHz
-    UBMP4_config();             // Configure on-board UBMP4 I/O devices
+    UBMP4_config();             // Configure I/O for on-board UBMP4 devices
 	
     while(1)
     {
-        if(SW3 == 0)
+        if(SW2 == 0)
         {
             ir_transmit_Sony(SONY_TV, SONY_POWER);
         }
