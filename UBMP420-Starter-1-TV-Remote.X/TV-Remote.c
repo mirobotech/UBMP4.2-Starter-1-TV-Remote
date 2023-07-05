@@ -1,6 +1,6 @@
 /*==============================================================================
  Project: TV-Remote                     Activity: mirobo.tech/ubmp4-starter-1
- Date:    May 16, 2023
+ Date:    July 5, 2023
  
  This starter programming project for the mirobo.tech UBMP4 modulates an IR LED
  to create SONY-formatted (SIRC) remote control codes. By using the concepts
@@ -121,11 +121,14 @@ int main(void)
  * 1.   Not all IR protocols encode data using a 40kHz carrier. The NEC protocol
  *      uses a 38kHz carrier, and the Philips RC-6 protocol uses a 36kHz
  *      carrier. Create and debug a pulse function to produce any number of
- *      modulated pulses at one of these other commonly-used frequencies.
+ *      modulated pulses at 38kHz, the carrier frequency that the demodulator
+ *      on UBMP4 and CHRP4 is designed for.
  * 
  * 2.   The NEC protocol (or a slight modification of it) is used by many brands
  *      of televisions including LG and Samsung. Research the NEC protocol. What
- *      type of modulation is used to encode its data?
+ *      type of modulation is used to encode its data? What differences do you
+ *      notice between the Sony and NEC data transmissions? What advantages and
+ *      disadvantages does the NEC protocol provide over Sony (SIRC) protocol?
  * 
  * 3.   Determine the number of pulses required to create a start bit, a zero
  *      bit, and a one bit for the NEC protocol when using a 38kHz carrier.
