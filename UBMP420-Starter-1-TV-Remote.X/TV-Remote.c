@@ -1,6 +1,6 @@
 /*==============================================================================
  Project: TV-Remote                     Activity: mirobo.tech/ubmp4-starter-1
- Date:    July 5, 2023
+ Date:    August 12, 2023
  
  This starter programming project for the mirobo.tech UBMP4 modulates an IR LED
  to create SONY-formatted (SIRC) remote control codes. By using the concepts
@@ -54,9 +54,9 @@
 void ir_pulse_40k(unsigned int pulses) // Make requested number of 40kHz pulses
 {
     for (pulses; pulses != 0; pulses--) {
-        LED6 = 1;               // Create 25us period waves
+        IRLED = 1;              // Create 25us period waves
         _delay(142);            // Use 12us on and 13us off for ~50% duty cycle
-        LED6 = 0;               // (25% duty cycle can be used to save power)
+        IRLED = 0;              // (25% duty cycle can be used to save power)
         _delay(141);
     }
 }
